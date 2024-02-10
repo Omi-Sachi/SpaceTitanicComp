@@ -34,7 +34,7 @@ features = ['HomePlanet', 'Destination', 'CryoSleep', 'VIP' ]
 X= pd.get_dummies(training_data[features]).astype(int)
 X = X.values.reshape((X.shape[0], -1))
 
-# To fix shaping problem, i am trying to reshape my data
+# To fix the shaping problem, I am trying to reshape my data
 y = training_data['Transported'].astype(int)
 y = y.values.reshape((y.shape[0], -1))
 x_test = pd.get_dummies(testing_data[features]).astype(int)
@@ -50,13 +50,13 @@ rt_model.fit(X_train,y_train)
 predictions = rt_model.predict(X_test)
 
 
-#Debugging inconsistant shape error
+#Debugging inconsistent shape error
 
 print(len(X), len(y))  # Check the lengths of X and y before train-test split
 print(len(X_train), len(y_train))  # Check the lengths of X_train and y_train after train-test split
 print(len(X_test), len(y_test))  # Check the lengths of X_test and y_test after train-test split
 
-#Debugging inconsistant shaping error
+#Debugging inconsistent shaping error
 print("X_train shape:", X_train.shape)
 print("y_train shape:", y_train.shape)
 print("X_test shape:", X_test.shape)
@@ -68,8 +68,8 @@ output = pd.DataFrame({'PassengerId': testing_data.PassengerId, 'Transported': p
 output.to_csv('submission.csv', index=False)
 print("Your submission was successfully saved!")
 
-Here is my old code and the mistakes i made were:
-Because my test and train data are in diffrent files i don't need to split them.
-Having x_test and X_test being so similar can cause problems as python is case sensitive.
+Here is my old code and the mistakes I made were:
+Because my test and train data are in different files I don't need to split them.
+Having x_test and X_test being so similar can cause problems as Python is case-sensitive.
 
-I was very worried went i was having these issues as my code should work but know i understand. 
+I was very worried went I was having these issues as my code should work but now I understand. 
